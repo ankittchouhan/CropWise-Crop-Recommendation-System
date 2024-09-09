@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <style>
+        /* Global body styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url({{url_for('static', filename='images/agriculture3.jpg')}}); 
+            background-size: cover;
+            /* color: #333; */
+        }
+
+        /* Overlay effect to darken the background image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* Container for the form */
+        .container {
+            /* background-color: rgba(129, 129, 129, 0.487); */
+            padding: 30px;
+            /* margin-top: 25px; */
+            max-width: 500px;
+            border-radius: 10px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            opacity: 0.95;
+        }
+
+        /* Header styles */
+        h2 {
+            color: green;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        /* Form label and input styles */
+        label {
+            font-size: 16px;
+            color: white;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            color: white;
+        }
+
+        /* Submit button styles */
+        .button-primary {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-primary:hover {
+            background-color: #45a049;
+        }
+
+        .logo {
+            margin-top: 55px;
+            display: grid;
+            place-items: center;
+        }
+
+        /* Make the form responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin-top: 50px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .button-primary {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="{{url_for('static', filename='images/logo.png')}}" style="height: 75px; " alt="logo">
+    </div>
+    <div class="container">
+        <!-- <h2>CropWise<br>Crop Recommendation</h2> -->
+        <form action="/predict" method="POST">
+            <label for="N">Nitrogen (N):</label>
+            <input type="number" id="N" name="N" required>
+
+            <label for="P">Phosphorus (P):</label>
+            <input type="number" id="P" name="P" required>
+
+            <label for="K">Potassium (K):</label>
+            <input type="number" id="K" name="K" required>
+
+            <label for="temperature">Temperature (°C):</label>
+            <input type="number" id="temperature" name="temperature" required>
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="number" id="humidity" name="humidity" required>
+
+            <label for="ph">pH Level:</label>
+            <input type="number" step="0.1" id="ph" name="ph" required>
+
+            <label for="rainfall">Rainfall (mm):</label>
+            <input type="number" id="rainfall" name="rainfall" required>
+
+            <input class="button-primary" type="submit" value="Predict Crop">
+        </form>
+    </div>
+</body>
+
+</html>

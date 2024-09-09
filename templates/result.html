@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <style>
+        body{
+            background-image: url({{url_for('static', filename='images/agriculture1.png')}});
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="{{url_for('static', filename='images/logo.png')}}" style="height: 65px; float: left;" alt="logo">
+    </div>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <div class="container">
+        <h2>Crop Recommendation Result</h2>
+        <p>The recommended crop for your inputs is: <strong>{{ crop }}</strong></p>
+        <a class="button" href="/">Go Back</a>
+    </div>
+</body>
+
+</html>

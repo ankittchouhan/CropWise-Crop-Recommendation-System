@@ -1,5 +1,3 @@
-# CropWise--Crop-Recommendation-System
- 
 # CropWise: An Intelligent Crop Recommendation System
 
 **CropWise** is a machine learning-based web application designed to recommend the most suitable crop based on various soil and environmental factors. The system leverages agricultural data to help farmers make data-driven decisions about crop selection, improving yield and sustainability.
@@ -42,11 +40,54 @@ Make sure you have the following installed:
 - Virtualenv (optional)
 
 ### Step 1: Clone the Repository
-```bash
+```
 git clone https://github.com/ankittchouhan/CropWise-Crop-Recommendation.git
 cd CropWise-Crop-Recommendation
+```
 
 ### Step 2: Set up the Virtual Environment
+```
 python -m venv env
 source env/bin/activate 
+```
 
+### Step 3: Install Required Dependencies
+```
+pip install -r requirements.txt
+```
+
+### Step 4: Run the Application
+```
+python app.py
+```
+
+## Usage
+Once the application is running, navigate to the web interface where you can input the following parameters:
+
+- **Nitrogen (N):** Nitrogen content in the soil.
+- **Phosphorus (P):** Phosphorus content in the soil.
+- **Potassium (K):** Potassium content in the soil.
+- **Temperature (°C):** The temperature of the environment.
+- **Humidity (%):** Humidity level in the air.
+- **pH Level:** The pH of the soil.
+- **Rainfall (mm):** The amount of rainfall in the region.
+
+After entering the data, click on the Predict Crop button to get a recommendation of the most suitable crop for your soil and environmental conditions.
+
+## Project Structure
+```
+CropWise-Crop-Recommendation/
+│
+├── templates/
+│   ├── home.html              # Homepage with the form for data input
+│   └── result.html            # Page to display crop prediction result
+│
+├── static/                    # CSS and other static assets
+│   ├── css/
+│   └── images/
+│
+├── app.py                     # Main Flask application file
+├── model.py                   # Machine learning model code
+├── requirements.txt           # Project dependencies
+└── README.md                  # Project documentation
+```
